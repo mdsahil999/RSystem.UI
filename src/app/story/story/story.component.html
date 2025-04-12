@@ -8,22 +8,10 @@
   [paginator]="true"
   [globalFilterFields]="['title']"
   responsiveLayout="scroll"
->
-  <!-- <ng-template pTemplate="caption">
-    <div class="search-bar-container">
-      <span class="p-input-icon-left search-input-wrapper">
-        <i class="pi pi-search"></i>
-        <input
-          pInputText
-          type="text"
-          (input)="onGlobalFilter($event)"
-          placeholder="Search stories by title..."
-          class="search-input"
-        />
-      </span>
-    </div>
-  </ng-template> -->
+  [showCurrentPageReport]="true"
 
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+>
   <ng-template pTemplate="caption">
     <div class="search-wrapper">
       <div class="search-bar-container">
@@ -38,8 +26,6 @@
       </div>
     </div>
   </ng-template>
-
-
 
   <ng-template pTemplate="body" let-story>
     <tr>
