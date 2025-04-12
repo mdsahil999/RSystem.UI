@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'story',
-    loadChildren: () => import("../app/story/story.module").then(e => e.StoryModule)
+    path: '',
+    loadChildren: () => import('./story/story.module').then(m => m.StoryModule),
+    pathMatch: 'full' // Ensures the empty path matches fully
   },
   {
     path: '**',
-    redirectTo: 'story'
-  },
+    redirectTo: '' // Redirect unknown paths to root
+  }
 ];
 
 @NgModule({
