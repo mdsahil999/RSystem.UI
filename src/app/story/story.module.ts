@@ -6,6 +6,7 @@ import { StoryComponent } from './story/story.component';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
+import { LoaderComponent } from '../loader-module/loader/loader.component';
 
 
 @NgModule({
