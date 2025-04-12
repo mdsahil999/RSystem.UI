@@ -1,0 +1,99 @@
+.story-card {
+  background-color: #f9fafb;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.story-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.story-title:hover {
+  text-decoration: underline;
+}
+
+.story-meta {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+.story-meta span {
+  margin-right: 15px;
+}
+
+.view-button {
+  padding: 6px 12px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.view-button:hover {
+  background-color: #155ec0;
+}
+
+//search design start
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.search-bar-container:hover,
+.search-bar-container:focus-within {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50px;
+  background: transparent;
+  color: #333;
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  color: #888;
+  margin-right: 0.5rem;
+}
+//search design end
+
+// car design start
+.page-card {
+  max-width: 1000px;
+  margin: 0px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+// car design end

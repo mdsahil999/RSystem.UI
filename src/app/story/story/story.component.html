@@ -1,27 +1,72 @@
+<div class="page-card">
 <p-table
-        #dt1 [value]="stories" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]" [paginator]="true" [globalFilterFields]="['title']"
+  #dt1
+  [value]="stories"
+  dataKey="id"
+  [rows]="5"
+  [rowsPerPageOptions]="[5, 10, 25, 50]"
+  [paginator]="true"
+  [globalFilterFields]="['title']"
+  responsiveLayout="scroll"
 >
-
-<ng-template pTemplate="caption">
-  <div class="flex">
-      <span class="p-input-icon-left ml-auto">
-          <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Search keyword" />
+  <!-- <ng-template pTemplate="caption">
+    <div class="search-bar-container">
+      <span class="p-input-icon-left search-input-wrapper">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="onGlobalFilter($event)"
+          placeholder="Search stories by title..."
+          class="search-input"
+        />
       </span>
-  </div>
-</ng-template>
-  <ng-template pTemplate="header">
-    <tr>
-      <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
-      <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
-      <th pSortableColumn="url">URL <p-sortIcon field="url"></p-sortIcon></th>
-    </tr>
+    </div>
+  </ng-template> -->
+
+  <ng-template pTemplate="caption">
+    <div class="search-wrapper">
+      <div class="search-bar-container">
+        <i class="pi pi-search search-icon"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="onGlobalFilter($event)"
+          placeholder="Search stories by title..."
+          class="search-input"
+        />
+      </div>
+    </div>
   </ng-template>
-  <ng-template pTemplate="body" let-product>
+
+
+
+  <ng-template pTemplate="body" let-story>
     <tr>
-      <td>{{ product.id }}</td>
-      <td>{{ product.title }}</td>
-      <td>{{ product.url }}</td>
+      <td>
+        <div class="story-card">
+          <a class="story-title" [href]="story.url" target="_blank">
+            {{ story.title }}
+          </a>
+          <div class="story-meta">
+            <span>👤 {{ story.by }}</span>
+            <span>🔥 Score: {{ story.score }}</span>
+            <span>💬 Comments: {{ story.descendants }}</span>
+            <span>🕒 {{ story.time * 1000 | date: 'short' }}</span>
+          </div>
+        </div>
+      </td>
+      <td>
+        <a
+          *ngIf="story.url"
+          [href]="story.url"
+          class="view-button"
+          target="_blank"
+        >
+          View Story
+        </a>
+      </td>
     </tr>
   </ng-template>
 </p-table>
+</div>
