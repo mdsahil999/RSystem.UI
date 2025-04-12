@@ -3,7 +3,7 @@ export class Story {
   descendants?: number;
   id?: number;
   score?: number;
-  time?: number; // Unix timestamp
+  time?: number;
   title?: string;
   type?: string;
   url?: string;
