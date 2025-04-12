@@ -5,9 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { IconFieldModule } from 'primeng/iconfield';
-import { InputIconModule } from 'primeng/inputicon';
-import { InputTextModule } from 'primeng/inputtext';
 import { LoadingInterceptor } from './loading.interceptor';
 import { LoaderComponent } from './loader-module/loader/loader.component';
 
@@ -22,9 +19,6 @@ import { LoaderComponent } from './loader-module/loader/loader.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    IconFieldModule,
-    InputIconModule,
-    InputTextModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
