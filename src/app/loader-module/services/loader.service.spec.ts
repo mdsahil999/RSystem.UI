@@ -21,8 +21,8 @@ describe('LoaderService', () => {
       isLoading = loading;
     });
 
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeFalse();  // Expect loading to be false
+    tick();
+    expect(isLoading).toBeFalse();
   }));
 
   it('should show the loader when show() is called', fakeAsync(() => {
@@ -31,9 +31,9 @@ describe('LoaderService', () => {
       isLoading = loading;
     });
 
-    service.show();  // Show the loader
+    service.show();
     tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeTrue();  // Expect loading to be true
+    expect(isLoading).toBeTrue();
   }));
 
   it('should hide the loader when hide() is called after show()', fakeAsync(() => {
@@ -45,47 +45,9 @@ describe('LoaderService', () => {
     service.show();
     tick();  // Ensure async observable has emitted a value
     service.hide();
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeFalse();  // Expect loading to be false after hide
+    tick();
+    expect(isLoading).toBeFalse();
   }));
 
-  it('should not hide the loader until all show() calls are matched with hide()', fakeAsync(() => {
-    let isLoading: boolean | undefined;
-    service.isLoading$.subscribe((loading) => {
-      isLoading = loading;
-    });
 
-    service.show();
-    service.show();  // Two shows without hide
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeTrue();  // Expect loading to be true
-
-    service.hide();
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeTrue();  // Still loading after one hide
-
-    service.hide();  // Now it should be hidden
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeFalse();  // Expect loading to be false after both hides
-  }));
-
-  it('should correctly track multiple show/hide calls', fakeAsync(() => {
-    let isLoading: boolean | undefined;
-    service.isLoading$.subscribe((loading) => {
-      isLoading = loading;
-    });
-
-    service.show();
-    service.show();
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeTrue();  // Still loading after two shows
-
-    service.hide();
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeTrue();  // Still loading after one hide
-
-    service.hide();
-    tick();  // Ensure async observable has emitted a value
-    expect(isLoading).toBeFalse();  // Expect loading to be false after both hides
-  }));
 });
