@@ -28,7 +28,10 @@ Run npm install
 
 > This will install all required packages as defined in package.json
 
-### ✅ Step 4: Run the Project Locally
+### ✅ Step 4: Update environments.ts
+Update apiBaseUrl of environments.ts based on your backend url
+
+### ✅ Step 5: Run the Project Locally
 
 Run ng s
 
