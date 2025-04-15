@@ -35,22 +35,12 @@
             {{ story.title }}
           </a>
           <div class="story-meta">
-            <span>👤 {{ story.by }}</span>
-            <span>🔥 Score: {{ story.score }}</span>
-            <span>💬 Comments: {{ story.descendants }}</span>
-            <span>🕒 {{ story.time * 1000 | date: 'short' }}</span>
+            <span>Author: {{ story.by }}</span>
+            <span>Score: {{ story.score }}</span>
+            <span>Comments: {{ story.descendants }}</span>
+            <span>{{ story.time * 1000 | date: 'short' }}</span>
           </div>
         </div>
-      </td>
-      <td>
-        <a
-          *ngIf="story.url"
-          [href]="story.url"
-          class="view-button"
-          target="_blank"
-        >
-          View Story
-        </a>
       </td>
     </tr>
   </ng-template>

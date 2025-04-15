@@ -9,6 +9,7 @@ import { StoryService } from '../services/story.service';
 })
 export class StoryComponent implements OnInit {
   stories: Story[] = [];
+  loading = false;  // Add a loading state for better UX
   @ViewChild('dt1') dt1: any;
 
   constructor(private service: StoryService) {}
@@ -18,12 +19,15 @@ export class StoryComponent implements OnInit {
   }
 
   getStories(): void {
+    this.loading = true;  // Set loading to true before starting the API call
     this.service.getAll().subscribe({
       next: (response: Story[]) => {
         this.stories = response;
+        this.loading = false;  // Set loading to false after the data is fetched
       },
       error: (error) => {
         console.error('Error loading stories:', error);
+        this.loading = false;  // Set loading to false in case of error
       }
     });
   }

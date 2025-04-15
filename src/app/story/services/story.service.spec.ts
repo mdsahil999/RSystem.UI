@@ -7,25 +7,29 @@ describe('StoryService', () => {
   let service: StoryService;
   let httpMock: HttpTestingController;
 
+  // Setup the testing module
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [StoryService],
+      imports: [HttpClientTestingModule],  // Import HttpClientTestingModule to mock HTTP requests
+      providers: [StoryService],           // Provide the StoryService to inject into tests
     });
-    service = TestBed.inject(StoryService);
-    httpMock = TestBed.inject(HttpTestingController);
+    service = TestBed.inject(StoryService);  // Inject the StoryService
+    httpMock = TestBed.inject(HttpTestingController);  // Inject HttpTestingController for mocking HTTP calls
   });
 
+  // After each test, verify that no unmatched HTTP requests are pending
   afterEach(() => {
     httpMock.verify();
   });
 
+  // Test to check if the service is created
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTruthy();  // Check if the service is successfully created
   });
 
+  // Test to check if all stories are fetched correctly
   it('should fetch all stories', () => {
-    const mockStories: Story[] = [
+    const mockStories: Story[] = [  // Sample data to mock the response
       {
         by: 'alice',
         descendants: 25,
@@ -58,12 +62,17 @@ describe('StoryService', () => {
       }
     ];
 
+    // Call the service's getAll method
     service.getAll().subscribe((stories) => {
+      // Check that the returned stories match the mock data
       expect(stories).toEqual(mockStories);
     });
 
+    // Expect a GET request to the correct URL (this should match the URL defined in the service)
     const req = httpMock.expectOne('https://localhost:7097/api/Story');
-    expect(req.request.method).toBe('GET');
-    req.flush(mockStories);
+    expect(req.request.method).toBe('GET');  // Ensure the request method is GET
+
+    // Respond with the mock data
+    req.flush(mockStories);  // Flush the mock response to the request
   });
 });
