@@ -34,12 +34,6 @@
           <a class="story-title" [href]="story.url" target="_blank">
             {{ story.title }}
           </a>
-          <div class="story-meta">
-            <span>Author: {{ story.by }}</span>
-            <span>Score: {{ story.score }}</span>
-            <span>Comments: {{ story.descendants }}</span>
-            <span>{{ story.time * 1000 | date: 'short' }}</span>
-          </div>
         </div>
       </td>
     </tr>
