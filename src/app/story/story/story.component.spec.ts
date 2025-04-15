@@ -11,8 +11,8 @@ describe('StoryComponent', () => {
   let storyServiceSpy: jasmine.SpyObj<StoryService>;
 
   const mockStories: Story[] = [
-    { id: 1, title: 'Story 1', url: 'https://example.com/story1', by: 'author1', time: 1234567890 },
-    { id: 2, title: 'Story 2', url: 'https://example.com/story2', by: 'author2', time: 1234567891 },
+    { id: 1, url: 'https://example.com/story1'},
+    { id: 2, url: 'https://example.com/story2'},
   ];
 
   beforeEach(async () => {

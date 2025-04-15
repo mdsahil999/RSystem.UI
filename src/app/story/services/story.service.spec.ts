@@ -31,32 +31,17 @@ describe('StoryService', () => {
   it('should fetch all stories', () => {
     const mockStories: Story[] = [  // Sample data to mock the response
       {
-        by: 'alice',
-        descendants: 25,
         id: 111,
-        score: 200,
-        time: 1712890000,
-        title: 'How to Build with Angular',
         type: 'story',
         url: 'https://example.com/angular-guide',
       },
       {
-        by: 'bob',
-        descendants: 15,
         id: 112,
-        score: 180,
-        time: 1712890500,
-        title: 'RxJS in Depth',
         type: 'story',
         url: 'https://example.com/rxjs',
       },
       {
-        by: 'carol',
-        descendants: 8,
         id: 113,
-        score: 90,
-        time: 1712891000,
-        title: 'Unit Testing in Angular',
         type: 'story',
         url: 'https://example.com/unit-testing',
       }
